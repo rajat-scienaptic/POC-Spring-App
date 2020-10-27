@@ -19,7 +19,9 @@ pipeline{
             // failed, record the test results and archive the jar file.
             success {
                 sh "ps | grep POC_Spring_APP | awk '{print \$1}' | xargs kill -9 || true"
-                sh "env SERVER.PORT=9002 nohup java -jar ./target/POC_Spring_APP.jar &"
+                sh "mv /target/POC_Spring_APP.jar /home/centos/CI-CD/POC_Spring_APP.jar"
+                sh "cd /home/centos/CI-CD"
+                sh "nohup java -jar POC_Spring_APP.jar &"
             }
          }
       }
