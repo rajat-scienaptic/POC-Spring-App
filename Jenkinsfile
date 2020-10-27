@@ -19,7 +19,7 @@ pipeline{
             // failed, record the test results and archive the jar file.
             success {
                 sh "ps | grep POC_Spring_APP | awk '{print \$1}' | xargs kill -9 || true"
-                sh "nohup java -jar /target/POC_Spring_APP.jar/POC_Spring_APP.jar &"
+                sh './jenkins/scripts/deliver.sh'
             }
          }
       }
