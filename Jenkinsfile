@@ -18,8 +18,8 @@ pipeline{
             // If Maven was able to run the tests, even if some of the test
             // failed, record the test results and archive the jar file.
             success {
-               junit '**/target/surefire-reports/TEST-*.xml'
-               archiveArtifacts 'target/*.jar'
+                sh "ps | grep POC-Spring-App | awk '{print $1}' | xargs kill -9 || true"
+                sh "env SERVER.PORT=8081 nohup java -jar ./target/POC-Spring-App-1.0-SNAPSHOT.jar &"
             }
          }
       }
