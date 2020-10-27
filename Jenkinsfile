@@ -9,13 +9,18 @@ node {
 
     stage('Test') {
      steps {
-        echo 'Testing...'
+        sh 'mvn test'
+     }
+     post {
+        always {
+             junit 'target/surefire-reports/*.xml'
+        }
      }
    }
 
-   stage('Deploy') {
-     steps {
-       echo 'Deploying...'
-     }
-   }
+  stage('Deliver') {
+      steps {
+          sh './jenkins/scripts/deliver.sh'
+      }
+  }
 }
