@@ -20,7 +20,7 @@ pipeline{
             success {
                 sh "ps | grep POC_Spring_APP | awk '{print \$1}' | xargs kill -9 || true"
                 dir('/var/lib/jenkins/workspace/HP CI-CD') {
-                    sh "cp -i -v /target/POC_Spring_APP.jar /home/centos/CI-CD/POC_Spring_APP.jar"
+                    sh "sudo cp -i -v /target/POC_Spring_APP.jar /home/centos/CI-CD/POC_Spring_APP.jar"
                     sh "cd /home/centos/CI-CD"
                     sh "nohup java -jar POC_Spring_APP.jar &"
                 }
