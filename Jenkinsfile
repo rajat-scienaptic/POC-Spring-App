@@ -1,6 +1,6 @@
 node {
     stage('Checkout') {
-        git 'https://github.com/rajat-scienaptic/hp-sdn.git'
+        git 'https://github.com/rajat-scienaptic/POC-Spring-App.git'
     }
 
     stage('Build') {
