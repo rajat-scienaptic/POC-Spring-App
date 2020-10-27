@@ -1,0 +1,6 @@
+server:
+  port: 9002
+
+spring:
+  applicaiton:
+    name: POC-Spring-APP

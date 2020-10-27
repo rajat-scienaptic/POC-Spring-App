@@ -1,0 +1,3 @@
+com\scienaptic\poc\Application.class
+com\scienaptic\poc\config\SwaggerConfig.class
+com\scienaptic\poc\controller\PocController.class
