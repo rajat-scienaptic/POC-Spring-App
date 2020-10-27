@@ -18,8 +18,8 @@ pipeline{
             // If Maven was able to run the tests, even if some of the test
             // failed, record the test results and archive the jar file.
             success {
-                sh "ps | grep POC-Spring-App | awk '{print \$1}' | xargs kill -9 || true"
-                sh "env SERVER.PORT=9002 nohup java -jar ./target/POC-Spring-App-1.0-SNAPSHOT.jar &"
+                sh "ps | grep POC_Spring_APP | awk '{print \$1}' | xargs kill -9 || true"
+                sh "env SERVER.PORT=9002 nohup java -jar ./target/POC_Spring_APP.jar &"
             }
          }
       }
