@@ -19,10 +19,11 @@ pipeline{
             // failed, record the test results and archive the jar file.
             success {
                 sh "ps | grep POC_Spring_APP | awk '{print \$1}' | xargs kill -9 || true"
-                sh "cd %WORKSPACE%"
-                sh "mv /target/POC_Spring_APP.jar /home/centos/CI-CD/POC_Spring_APP.jar Supernayap@ssw0rd"
-                sh "cd /home/centos/CI-CD"
-                sh "nohup java -jar POC_Spring_APP.jar &"
+                dir('/var/lib/jenkins/workspace/HP CI-CD') {
+                    sh "mv /target/POC_Spring_APP.jar /home/centos/CI-CD/POC_Spring_APP.jar Supernayap@ssw0rd"
+                    sh "cd /home/centos/CI-CD"
+                    sh "nohup java -jar POC_Spring_APP.jar &"
+                }
             }
          }
       }
