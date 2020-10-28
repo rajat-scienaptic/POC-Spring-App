@@ -16,7 +16,8 @@ pipeline{
             success {
                 sh "ps aux | grep - PocSpringAPP | awk '{print \$1}' | xargs kill -9 || true"
                 dir('/var/lib/jenkins/workspace/HP-CI-CD/target'){
-                 sh nohup java -jar PocSpringAPP.jar &
+                 sh "nohup java -jar PocSpringAPP.jar &" > start-jar-in-background.sh
+                 sh ./start-jar-in-background.sh
                  echo "started java jar"
                 }
             }
