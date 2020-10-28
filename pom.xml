@@ -72,7 +72,7 @@
                             <goal>repackage</goal>
                         </goals>
                         <configuration>
-                            <finalName>POC_Spring_APP</finalName>
+                            <finalName>PocSpringAPP</finalName>
                         </configuration>
                     </execution>
                 </executions>

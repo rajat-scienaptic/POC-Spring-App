@@ -16,7 +16,7 @@ pipeline{
             success {
                 sh "ps | grep POC_Spring_APP | awk '{print \$1}' | xargs kill -9 || true"
                 sh "cd /var/lib/jenkins/workspace/HP-CI-CD/target"
-                sh "nohup java -jar POC_Spring_APP.jar &"
+                sh "java -jar PocSpringAPP.jar"
             }
          }
       }
