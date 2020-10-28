@@ -7,7 +7,7 @@ pipeline{
             git 'https://github.com/rajat-scienaptic/POC-Spring-App.git'
             // Run Maven on a Unix agent.
 
-            bat "mvn -Dmaven.test.failure.ignore=true clean package"
+            sh "mvn -Dmaven.test.failure.ignore=true clean package"
          }
 
          post {
@@ -16,7 +16,7 @@ pipeline{
             success {
                 bat "ps aux | grep - PocSpringAPP | awk '{print \$1}' | xargs kill -9 || true"
                 dir('/var/lib/jenkins/workspace/HP-CI-CD/target'){
-                 bat "nohup java -jar PocSpringAPP.jar &"
+                 sh "javaw -jar PocSpringAPP.jar"
                  echo "started java jar"
                 }
             }
