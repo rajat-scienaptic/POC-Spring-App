@@ -14,10 +14,8 @@ pipeline{
             // If Maven was able to run the tests, even if some of the test
             // failed, record the test results and archive the jar file.
             success {
-                sh "ps | grep PocSpringAPP | awk '{print \$1}' | xargs kill -9 || true"
-                dir('/var/lib/jenkins/workspace/HP-CI-CD/target'){
-                 sh "java -jar PocSpringAPP.jar"
-                }
+                sh "ps aux | grep - PocSpringAPP | awk '{print \$1}' | xargs kill -9 || true"
+
             }
          }
       }
