@@ -18,6 +18,7 @@ pipeline{
                 dir('/var/lib/jenkins/workspace/HP-CI-CD/target'){
                  sh "java -jar PocSpringAPP.jar"
                 }
+                echo "success"
             }
          }
 
