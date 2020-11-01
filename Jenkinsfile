@@ -14,7 +14,7 @@ pipeline{
             // If Maven was able to run the tests, even if some of the test
             // failed, record the test results and archive the jar file.
             success {
-                sh "sudo kill -9 /$(sudo lsof -t -i:9002)"
+                sh "sudo kill -9 \$(sudo lsof -t -i:9002)"
                 dir('/var/lib/jenkins/workspace/HP-CI-CD/target'){
                  sh "java -jar PocSpringAPP.jar"
                 }
