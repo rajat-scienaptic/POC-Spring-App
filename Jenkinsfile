@@ -16,7 +16,7 @@ pipeline{
             success {
                 sh "ps aux | grep - PocSpringAPP | awk '{print \$1}' | xargs kill -9 || true"
                 dir('/var/lib/jenkins/workspace/HP-CI-CD/target'){
-                 sh "BUILD_ID=dontKillMe java -jar PocSpringAPP.jar &"
+                 sh "java -jar PocSpringAPP.jar"
                  echo "started java jar"
                 }
             }
