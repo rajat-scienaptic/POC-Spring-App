@@ -16,9 +16,11 @@ pipeline{
           echo "Deploying to Dev environment after build"
          } else if (env.BRANCH_NAME.startsWith("master")) {
           echo "Deploying to PROD environment"
-           sh "sudo kill -9 $(sudo lsof -t -i:9002)"
-           dir('/var/lib/jenkins/workspace/HP-CI-CD/target'){
-            sh "java -jar PocSpringAPP.jar"
+           steps{
+              sh "sudo kill -9 $(sudo lsof -t -i:9002)"
+              dir('/var/lib/jenkins/workspace/HP-CI-CD/target'){
+               sh "java -jar PocSpringAPP.jar"
+              }
            }
          }
        }
